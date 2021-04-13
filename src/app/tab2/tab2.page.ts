@@ -39,9 +39,24 @@ export class Tab2Page implements OnInit {
       console.error("Error removing document: ", error);
     });;
     // remove image
-
+    this.hapusFoto(judul);
     alert("Note berhasil dihapus!");
   }
+
+  hapusFoto(judul) {
+    var refImage = this.afStorage.storage.ref('utsImgStorage/'+judul);
+    refImage.listAll()
+      .then((res) => {
+        res.items.forEach((itemRef) => {
+          itemRef.delete().then(() => {
+            //menampilkan data
+          });
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+  }
+
 }
 
 interface data {
