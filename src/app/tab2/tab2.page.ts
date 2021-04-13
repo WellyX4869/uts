@@ -28,8 +28,19 @@ export class Tab2Page implements OnInit {
 
   AksesIni(judul)
   {
-    alert("jancok");
     this.router.navigate(["/tabs/tab3/" + judul]);
+  }
+
+  HapusIni(judul){
+    // remove document
+    this.isiDataColl.doc(judul).delete().then(()=>{
+      console.log("Note berhasil dihapus!");
+    }).catch((error) => {
+      console.error("Error removing document: ", error);
+    });;
+    // remove image
+
+    alert("Note berhasil dihapus!");
   }
 }
 
