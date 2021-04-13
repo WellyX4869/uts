@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let data of isiData | async; let i=index;" (click)="AksesIni(data.judul)">
+      <ion-label>
+        <h1>{{data.judul}}-{{data.tanggal}}</h1>
+        <p>{{data.isi}}</p>
+        
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
