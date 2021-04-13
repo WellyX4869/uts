@@ -5,5 +5,43 @@
 </ion-header>
 
 <ion-content>
-
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Judul</ion-label>
+    <ion-input type="text" [(ngModel)]="judul"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Isi</ion-label>
+    <ion-textarea [(ngModel)]="isi"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Tanggal</ion-label>
+    <ion-input type="date" [(ngModel)]="tanggal"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nilai</ion-label>
+    <ion-input type="number" [(ngModel)]="nilai"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Gambar
+    </ion-label>
+    <ion-button (click)="TambahFoto()" slot="end">
+      <ion-icon name="camera"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" class="ion-align-self-center"
+          *ngFor="let isiFoto of notesService.dataFoto; index as position; let i = index;">
+          <ion-img [src]="isiFoto.webviewPath"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-button color="primary" (click)="EditNote()" expand="block">
+    EDIT NOTE
+  </ion-button>
+</ion-list>
 </ion-content>

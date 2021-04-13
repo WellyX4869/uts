@@ -31,6 +31,11 @@ export class Tab2Page implements OnInit {
     this.router.navigate(["/tabs/tab3/" + judul]);
   }
 
+  EditIni(judul)
+  {
+    this.router.navigate(["/tabs/tab4/" + judul]);
+  }
+
   HapusIni(judul){
     // remove document
     this.isiDataColl.doc(judul).delete().then(()=>{
